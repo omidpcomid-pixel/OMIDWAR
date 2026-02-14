@@ -9,21 +9,25 @@ import feedparser
 import folium
 from streamlit_folium import st_folium
 from deep_translator import GoogleTranslator
-from telegram import Bot
 
 # ----------------------
 # 1. تنظیمات تلگرام
 # ----------------------
-TELEGRAM_TOKEN = "8385391009:AAF1rBbn_SoU5p-2m_gzUF8OL8bG-kzKsN0"
-TELEGRAM_IDS = [3399457]  # ID تو و بعدا افراد دیگر اضافه می‌شوند
-bot = Bot(token=TELEGRAM_TOKEN)
-
-def send_telegram(msg):
-    for chat_id in TELEGRAM_IDS:
-        try:
-            bot.send_message(chat_id=chat_id, text=msg)
-        except:
-            pass
+try:
+    from telegram import Bot
+    TELEGRAM_TOKEN = "8385391009:AAF1rBbn_SoU5p-2m_gzUF8OL8bG-kzKsN0"
+    TELEGRAM_IDS = [3399457]  # ID خودت و دوستان بعداً اضافه می‌شوند
+    bot = Bot(token=TELEGRAM_TOKEN)
+    def send_telegram(msg):
+        for chat_id in TELEGRAM_IDS:
+            try:
+                bot.send_message(chat_id=chat_id, text=msg)
+            except:
+                pass
+except Exception as e:
+    st.warning("⚠️ تلگرام فعال نیست، نسخه بدون هشدار تلگرام اجرا شد")
+    def send_telegram(msg):
+        pass  # اگر تلگرام نصب نبود، هیچ کاری نکند
 
 # ----------------------
 # 2. فونت فارسی و طراحی حرفه‌ای
