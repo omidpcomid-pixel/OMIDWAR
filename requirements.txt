@@ -1,0 +1,10 @@
+streamlit
+yfinance
+plotly
+feedparser
+folium
+branca
+streamlit-folium
+deep-translator
+python-telegram-bot==20.3
+schedule
