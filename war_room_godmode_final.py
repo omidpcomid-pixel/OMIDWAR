@@ -13,10 +13,11 @@ from deep_translator import GoogleTranslator
 # ----------------------
 # 1. تنظیمات تلگرام
 # ----------------------
+TELEGRAM_IDS = [3399457]  # همیشه تعریف شود حتی اگر تلگرام کار نکند
+
 try:
     from telegram import Bot
     TELEGRAM_TOKEN = "8385391009:AAF1rBbn_SoU5p-2m_gzUF8OL8bG-kzKsN0"
-    TELEGRAM_IDS = [3399457]  # ID خودت و دوستان بعداً اضافه می‌شوند
     bot = Bot(token=TELEGRAM_TOKEN)
     def send_telegram(msg):
         for chat_id in TELEGRAM_IDS:
